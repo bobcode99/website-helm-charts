@@ -1,0 +1,21 @@
+USER-SUPPLIED VALUES:
+USER-SUPPLIED VALUES: null
+global:
+  storageClass: local-path
+mariadb:
+  primary:
+    nodeSelector:
+      kubernetes.io/role: worker-for-website
+metrics:
+  enabled: true
+nodeSelector:
+  kubernetes.io/role: worker-for-website
+service:
+  type: NodePort
+resources:
+  requests:
+    cpu: "1"
+    memory: "1Gi"
+  limits:
+    cpu: "1"
+    memory: "1Gi"
