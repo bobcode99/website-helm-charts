@@ -20,6 +20,12 @@ resources:
     cpu: "1"
     memory: "1Gi"
 replicaCount: 2
+podAntiAffinityPreset: "soft"
+nodeAffinityPreset:
+  type: "soft"
+  key: "kubernetes.io/role"
+  values:
+    - "worker-for-website"
 # autoscaling:
 #   enabled: true
 #   minReplicas: 1
