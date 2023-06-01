@@ -19,7 +19,8 @@ resources:
   limits:
     cpu: "1"
     memory: "1Gi"
-autoscaling:
-  enabled: true
-  minReplicas: 1
-  maxReplicas: 4
+replicaCount: 2
+# autoscaling:
+#   enabled: true
+#   minReplicas: 1
+#   maxReplicas: 4
