@@ -20,12 +20,14 @@ resources:
     cpu: "1"
     memory: "1Gi"
 replicaCount: 2
-podAntiAffinityPreset: "soft"
-nodeAffinityPreset:
-  type: "soft"
-  key: "kubernetes.io/role"
-  values:
-    - "worker-for-website"
+# https://help.servmask.com/2018/10/27/how-to-increase-maximum-upload-file-size-in-wordpress/
+wordpressExtraConfigContent: |
+  @ini_set( 'upload_max_filesize', '1G' );
+  @ini_set( 'post_max_size', '1G' );
+  @ini_set( 'memory_limit', '1G' );
+  @ini_set( 'max_execution_time', '0' );
+  @ini_set( 'max_input_time', '0' );
+
 # autoscaling:
 #   enabled: true
 #   minReplicas: 1
