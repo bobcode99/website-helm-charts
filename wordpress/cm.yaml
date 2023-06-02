@@ -12,5 +12,3 @@ data:
     max_execution_time = 0
     max_input_time = 0
     memory_limit = 512M
-#https://github.com/bitnami/charts/issues/5929
-# https://help.servmask.com/2018/10/27/how-to-increase-maximum-upload-file-size-in-wordpress/
