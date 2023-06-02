@@ -5,21 +5,21 @@ global:
 mariadb:
   primary:
     nodeSelector:
-      kubernetes.io/role: worker-for-website
+      kubernetes.io/role: worker-for-website1
 metrics:
   enabled: true
 nodeSelector:
-  kubernetes.io/role: worker-for-website
+  kubernetes.io/role: worker-for-website1
 service:
   type: NodePort
 resources:
   requests:
-    cpu: "1"
-    memory: "1Gi"
+    cpu: "4"
+    memory: "8Gi"
   limits:
-    cpu: "1"
-    memory: "1Gi"
-replicaCount: 2
+    cpu: "4"
+    memory: "8Gi"
+replicaCount: 1
 extraVolumeMounts:
   - name: php-ini
     mountPath: /opt/bitnami/php/etc/conf.d
@@ -28,6 +28,9 @@ extraVolumes:
   - name: php-ini
     configMap:
       name: php-ini
+customPostInitScripts:
+  wp_memory_limit.sh: |
+    sed -i "/.*That's all, stop editing! Happy publishing.*/i define('WP_MEMORY_LIMIT', '512M');" /opt/bitnami/wordpress/wp-config.php
 # autoscaling:
 #   enabled: true
 #   minReplicas: 1
