@@ -13,5 +13,7 @@ helm upgrade -n wordpress-namespace my-wordpress oci://registry-1.docker.io/bitn
 Ref:
 
 https://github.com/bitnami/charts/tree/main/bitnami/wordpress
+
 https://github.com/bitnami/charts/issues/5929
+
 https://help.servmask.com/2018/10/27/how-to-increase-maximum-upload-file-size-in-wordpress/
