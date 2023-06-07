@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: my-wordpress-metrics
+  namespace: monitoring
+  labels:
+    release: kube-prometheus-stack # need same with "k get prometheus -n monitoring kube-prometheus-stack-prometheus -o yaml" spec.serviceMonitorSelector.matchLabels.release
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: wordpress
+  endpoints:
+  - port: metrics  # replace with the port where the JMX exporter is running
+    interval: 15s
+    path: /metrics # replace with the path to the JMX exporter metrics endpoint
+  namespaceSelector:
+    any: true
