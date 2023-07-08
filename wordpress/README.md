@@ -2,12 +2,12 @@ Install
 ```
 k create ns wordpress-ns-new
 k apply -f ./cm.yaml
-helm install my-wordpress oci://registry-1.docker.io/bitnamicharts/wordpress --version 16.1.10 --namespace wordpress-namespace -f ./values.yaml
+helm install my-wordpress oci://registry-1.docker.io/bitnamicharts/wordpress --version 16.1.10 --namespace wordpress-ns-new -f ./values.yaml
 ```
 
 Upgrade value
 ```
-helm upgrade -n wordpress-namespace my-wordpress oci://registry-1.docker.io/bitnamicharts/wordpress --version 16.1.10 -f ./values.yaml
+helm upgrade -n wordpress-ns-new my-wordpress oci://registry-1.docker.io/bitnamicharts/wordpress --version 16.1.10 -f ./values.yaml
 ```
 
 Ref:
